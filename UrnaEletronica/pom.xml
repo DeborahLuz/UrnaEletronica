@@ -32,14 +32,37 @@
 			<id>JBoss repository</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
 	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jsf.api.version>2.2.13</jsf.api.version>
+		<jsf.impl.version>2.2.13</jsf.impl.version>
+		<jstl.version>1.2</jstl.version>
 	</properties>
 
 	<dependencies>
+		
+		<!-- Primeface - Theme -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+	
 		<!-- Servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -153,7 +176,26 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		
+		<!-- JSF -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>${jsf.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>${jsf.impl.version}</version>
+		</dependency>
 
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		
 
 	</dependencies>
 </project>

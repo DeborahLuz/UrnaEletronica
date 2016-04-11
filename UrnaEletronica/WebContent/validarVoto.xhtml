@@ -8,12 +8,9 @@
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
-		<br/>
-		<br/>
-		<br/>
-	    <p:button outcome="cadastroEleitor" value="Cadastrar Eleitor" icon="ui-icon-star"/>
-	    <p:button outcome="cadastroCandidato" value="Cadastrar Candidato" icon="ui-icon-star"/>
-	    <p:button outcome="validarVoto" value="Votar" icon="ui-icon-star"/>
+		<p:outputLabel value=" "/><p:inputText value="#{votacaoBean.eleitor.tituloVotacao}"/> <br/> <br/>
+	   <p:commandButton value="Verificar" 
+					action="#{votacaoBean.verificarTitulo}" styleClass="ui-priority-primary" />
 	    
 	</ui:define>
 </ui:composition>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:panel>
+				<h2>Votar Governador:</h2>
+				<p:inputText value="#{votacaoBean.voto.votoCandidato}" id="input_voto"/>
+				
+				<p:growl id="growl" life="2000" />
+				<p:commandButton value="Votar" update="growl" 
+					action="#{votacaoBean.votar}" styleClass="ui-priority-primary" />
+				
+				
+				<p:commandButton value="Branco" update="growl" 
+					action="#{votacaoBean.votarBranco}" styleClass="ui-priority-primary" />
+					
+			
+				<p:commandButton value="Corrigir" update="growl" 
+					onclick="PF('input_voto').clear()" styleClass="ui-priority-primary" />
+					
+			
+				<p:commandButton value="Encerrar Eleição" update="growl" 
+					action="#{apuracaoBean.encerrarEleicao}" styleClass="ui-priority-primary" />
+			</p:panel>
+		</h:form>
+	    
+	</ui:define>
+</ui:composition>
+</html>

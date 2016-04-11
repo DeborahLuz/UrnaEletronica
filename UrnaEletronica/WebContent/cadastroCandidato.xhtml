@@ -8,21 +8,38 @@
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
-		<br/>
-		<br/>
-		<br/>
-		<h1>Cadastrar Candidato</h1>
-		<h:panelGrid columns="2">
-		    <p:outputLabel value="Nome: "/><p:inputText />
-		    <p:outputLabel value="Identidade: "/><p:inputText />
-		    <p:outputLabel value="Cpf: "/><p:inputText />
-		    <p:outputLabel value="Titulo de Votação: "/><p:inputText />
-		    <p:outputLabel value="Endereço: "/><p:inputText />
-		    <p:outputLabel value="Nome do Partido: "/><p:inputText />
-		    <p:outputLabel value="Numero do Partido: "/><p:inputText />
-	    </h:panelGrid>
-	    <br/>
-	    <p:commandButton value="Cadastrar" icon="ui-icon-disk" />   
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+			
+				<h:outputLabel value="Digite seu nome:"/>
+				<p:inputText value="#{candidatoBean.candidato.nome}"/>
+				
+				<h:outputLabel value="Digite seu endereço:"/>
+				<p:inputText value="#{candidatoBean.candidato.endereco}"/>
+				
+				<h:outputLabel value="Digite seu cpf:"/>
+				<p:inputText value="#{candidatoBean.candidato.cpf}"/>
+				
+				<h:outputLabel value="Digite o número do seu título de eleitor:"/>
+				<p:inputText value="#{candidatoBean.candidato.tituloVotacao}"/>
+				
+				<h:outputLabel value="Digite seu número de campanha:"/>
+				<p:inputText value="#{candidatoBean.candidato.numero}"/>
+				
+				<h:outputLabel value="Digite seu cargo:"/>
+	       	    <p:selectOneMenu id="cargo" value="#{candidatoBean.candidato.cargo}" style="width:200px">
+		            <f:selectItem itemLabel="Selecione o cargo" itemValue="" />
+		          
+		            <f:selectItem itemLabel="Presidente" itemValue="Presidente" />
+		            <f:selectItem itemLabel="Governador" itemValue="Governador" />
+		            <f:selectItem itemLabel="Prefeito" itemValue="Prefeito" />
+	        	</p:selectOneMenu>
+				
+				<p:commandButton value="Cadastrar" 
+				action="#{candidatoBean.cadastrarCandidato}" styleClass="ui-priority-primary" />
+			
+			</h:panelGrid>
+		</h:form>   
 	    
 	</ui:define>
 </ui:composition>

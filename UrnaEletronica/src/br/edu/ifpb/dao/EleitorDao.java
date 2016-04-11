@@ -84,5 +84,31 @@ public class EleitorDao extends GenericDao<Integer, Eleitor>{
 		 return eleitor;
 
 	}
-
+public Eleitor getByTitulo(String titulo) {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		Eleitor eleitor = null;
+		
+		try {
+			
+			String hql = "from Eleitor as a"
+					+ " where a.tituloVotacao = :titulo";
+			
+			Query query = session.createQuery(hql);
+			query.setParameter("titulo", titulo);
+			
+			eleitor = (Eleitor) query.uniqueResult();
+	        
+		} catch (HibernateException hibernateException) {
+			
+			session.getTransaction().rollback();
+			
+		} finally {
+		
+			session.close();
+		}
+		
+		return eleitor;
+	}
 }

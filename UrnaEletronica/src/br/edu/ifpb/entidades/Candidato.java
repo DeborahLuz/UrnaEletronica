@@ -1,8 +1,18 @@
 package br.edu.ifpb.entidades;
 
-public class Candidato extends Pessoa{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@NamedQuery(name = "Candidato.getAll", query = "from Candidato")
+public class Candidato extends Eleitor{
+	@Column
 	private String nomePartido;
-	private int numeroPartido;
+	@Column
+	private int numero;
+	@Column
 	private String Cargo;
 	
 	public String getNomePartido() {
@@ -11,11 +21,11 @@ public class Candidato extends Pessoa{
 	public void setNomePartido(String nomePartido) {
 		this.nomePartido = nomePartido;
 	}
-	public int getNumeroPartido() {
-		return numeroPartido;
+	public int getNumero() {
+		return numero;
 	}
-	public void setNumeroPartido(int numeroPartido) {
-		this.numeroPartido = numeroPartido;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 	public String getCargo() {
 		return Cargo;
@@ -23,5 +33,5 @@ public class Candidato extends Pessoa{
 	public void setCargo(String cargo) {
 		Cargo = cargo;
 	}
-
+	
 }

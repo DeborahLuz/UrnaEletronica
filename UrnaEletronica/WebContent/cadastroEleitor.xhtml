@@ -8,20 +8,28 @@
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
-		<br/>
-		<br/>
-		<br/>
-		<h1>Cadastrar Eleitor</h1>
-		<h:panelGrid columns="2">
-		    <p:outputLabel value="Nome: "/><p:inputText />
-		    <p:outputLabel value="Identidade: "/><p:inputText />
-		    <p:outputLabel value="Cpf: "/><p:inputText />
-		    <p:outputLabel value="Titulo de Votação: "/><p:inputText />
-		    <p:outputLabel value="Endereço: "/><p:inputText />
-	    </h:panelGrid>
-	    <br/>
-	    <p:commandButton value="Cadastrar" icon="ui-icon-disk" />   
-	    
+		   
+	   <h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+			
+				<h:outputLabel value="Digite seu nome:"/>
+				<p:inputText value="#{eleitorBean.eleitor.nome}"/>
+				
+				<h:outputLabel value="Digite seu endereço:"/>
+				<p:inputText value="#{eleitorBean.eleitor.endereco}"/>
+				
+				<h:outputLabel value="Digite seu cpf:"/>
+				<p:inputText value="#{eleitorBean.eleitor.cpf}"/>
+				
+				<h:outputLabel value="Digite o número do seu título de eleitor:"/>
+				<p:inputText value="#{eleitorBean.eleitor.tituloVotacao}"/>
+				
+				<p:commandButton value="Cadastrar" 
+				action="#{eleitorBean.cadastrarEleitor}" styleClass="ui-priority-primary" />
+			
+			</h:panelGrid>
+		</h:form>   
+	     
 	</ui:define>
 </ui:composition>
 </html>

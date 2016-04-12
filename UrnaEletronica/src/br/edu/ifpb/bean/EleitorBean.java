@@ -21,7 +21,7 @@ public class EleitorBean {
 		
 		EleitorDao eleitorDao = new EleitorDao();
 		eleitorDao.insert(eleitor);
-		return "http://localhost:8080/UrnaEletronica/index.xhtml";
+		return "index";
 	}
 	
 	

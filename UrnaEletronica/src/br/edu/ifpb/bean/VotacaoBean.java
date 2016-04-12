@@ -42,7 +42,7 @@ public class VotacaoBean {
 		
 		if((candidatoDAO.getNumCandidatos("Prefeito")>=2)&& (candidatoDAO.getNumCandidatos("Governador")>=2)
 			&& (candidatoDAO.getNumCandidatos("Presidente")>=2)){
-				redirecionar = "entrar-eleicao.xhtml?faces-redirect=true&includeViewParams=true";
+				redirecionar = "entrar-eleicao";
 				return redirecionar;
 			}else{
 			FacesContext.getCurrentInstance().addMessage(
@@ -57,14 +57,14 @@ public class VotacaoBean {
 	public String verificarTitulo() throws IOException{
 		EleitorDao eleitorDAO = new EleitorDao();
 		Eleitor eleitor_aux = eleitorDAO.getByTitulo(eleitor.getTituloVotacao());
-			
+		
 		if(eleitor_aux!=null){
 
 			VotoDao votoDAO = new VotoDao();
 			List<Voto> voto_aux = votoDAO.getByVoto(eleitor_aux.getId());
 			if(voto_aux.size()==0){
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("eleitor", eleitor_aux);
-				redirecionar = "votar.xhtml?faces-redirect=true&includeViewParams=true";
+				redirecionar = "votar";
 				return redirecionar;
 			}else{
 				FacesContext.getCurrentInstance().addMessage(

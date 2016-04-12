@@ -19,7 +19,7 @@ public class CandidatoBean {
 		
 		CandidatoDao candidatoDao = new CandidatoDao();
 		candidatoDao.insert(candidato);
-		return "http://localhost:8080/UrnaEletronica/index.xhtml";
+		return "index";
 	}
 	
 	
